@@ -1,3 +1,5 @@
+# This fork is for use with FreePBX (Tested on the freepbx Distro)
+
 # CDR web interface for Asterisk
 
 ![](https://cloud.githubusercontent.com/assets/1784421/17270493/24dda150-5664-11e6-8e4e-a8479fdf6307.png)
