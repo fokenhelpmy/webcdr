@@ -34,7 +34,7 @@
    npm run build
    ```
    
-6. Import the webuser table into mysql/mariadb
+6. Import the webuser table into mysql/mariadb located in webcdr/install/ folder
 
    mysql asteriskcdrdb < webuser.sql (add username and password if you are not using the standard root profile i.e mysql -uroot -p asteriskcdrdb < webuser.sql)
    ```  
