@@ -1,8 +1,21 @@
-1. Install node.js (4+) and npm
+1. Install node.js (4+) and npm 
+
+    If its already installed but on an older version then you need to update 
+
+1.1 Update node with the following command
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash 
+
+    and then add node 8 with this command
+
+    nvm install v8.16.2
+
 2. Install global npm packages used to build webcdr:
    ```
    npm -g install bower browserify
    ```
+2.1 Clone webcdr into freepbx server
+
+    git clone https://github.com/fokenhelpmy/webcdr.git
 
 3. Install bower dependencies:
    ```
@@ -21,15 +34,18 @@
    npm run build
    ```
    
-6. Create a MySQL database for cdr data (WARNING: the script drops tables if they exist!):
-   ```
-   cd PATH_TO_WEBCDR/install
-   mysqladmin create asteriskcdrdb
-   mysql asteriskcdrdb -uuser -ppassword < db.sql
-   ```
+6. Import the webuser table into mysql/mariadb
+
+   mysql asteriskcdrdb < webuser.sql (add username and password if you are not using the standard root profile i.e mysql -uroot -p asteriskcdrdb < webuser.sql)
+   ```  
+7. Add another field into the asterisk cdr database following these instructions line by line
    
-7. Set up your Asterisk to save cdr data into the database you've created
-8. Set up your Asterisk to save call recordings to mp3 files. Files must contain uniqueid in names to find matching cdrs. Also, `record` column in the database table must be set to a non-null value to indicate presence of a recording
+   mysql (add username and password if you are not using the standard root profile i.e mysql -uroot -p)
+   use asteriskcdrdb;
+   ALTER TABLE `cdr` ADD `newid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY;
+   
+8. Exit mysql and stay in the webcdr folder
+ 
 9. Set database credentials, recordings glob pattern and other parameters in config.ini
 10. Start the server (HTTP on port 9030 by default):
     ```
