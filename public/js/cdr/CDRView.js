@@ -89,7 +89,7 @@ var columns = [{
   cell: 'string',
   formatter: TimeFormatter
 }, {
-  name: 'record',
+  name: 'recordingfile',
   label: $$('Recording'),
   editable: false,
   cell: 'audio'
