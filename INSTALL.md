@@ -3,12 +3,15 @@
     If its already installed but on an older version then you need to update 
 
 1.1 Update node with the following command
+    
+    
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash 
 
     and then add node 8 with this command
 
     nvm install v8.16.2
-
+    
+   
 2. Install global npm packages used to build webcdr:
    ```
    npm -g install bower browserify
@@ -35,15 +38,18 @@
    ```
    
 6. Import the webuser table into mysql/mariadb located in webcdr/install/ folder
+```
 
-   mysql asteriskcdrdb < webuser.sql (add username and password if you are not using the standard root profile i.e mysql -uroot -p asteriskcdrdb < webuser.sql)
+   mysql asteriskcdrdb < webuser.sql (add username and password if you are not using the standard root profile i.e mysql -uroot -p   asteriskcdrdb < webuser.sql)
+   
    ```  
 7. Add another field into the asterisk cdr database following these instructions line by line
-   
+   ```
    mysql (add username and password if you are not using the standard root profile i.e mysql -uroot -p)
    use asteriskcdrdb;
    ALTER TABLE `cdr` ADD `newid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY;
    
+   ```
 8. Exit mysql and stay in the webcdr folder
  
 9. Set database credentials, recordings glob pattern and other parameters in config.ini
