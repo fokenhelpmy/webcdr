@@ -48,6 +48,16 @@
    mysql (add username and password if you are not using the standard root profile i.e mysql -uroot -p)
    use asteriskcdrdb;
    ALTER TABLE `cdr` ADD `newid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY;
+
+Create user
+
+   CREATE USER 'webcdr'@'%' IDENTIFIED BY 'password';
+   
+Grant privleges
+
+   GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'webcdr'@'%' WITH GRANT OPTION;
+
+   
    
    ```
 8. Exit mysql and stay in the webcdr folder
