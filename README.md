@@ -1,4 +1,5 @@
 # This fork is for use with FreePBX (Tested on the freepbx Distro)
+# Working with Freepbx 17 running on Debian
 
 # CDR web interface for Asterisk
 
